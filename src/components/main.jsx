@@ -1,9 +1,7 @@
 import React from "react";
-import BGHD from "../assets/Image/background-destination-desktop.jpg";
-import BGHT from "../assets/Image/background-destination-tablet.jpg";
-import BGHM from "../assets/Image/background-destination-mobile.jpg";
 import { Route, Routes } from "react-router-dom";
-import Nav from "./nav";
+import Destination from "./destination";
+import Home from "./home";
 
 // // Desktop imports
 // import Home from "./Home";
@@ -23,23 +21,9 @@ import Nav from "./nav";
 function Main() {
   return (
     <>
-      <div
-        className="lg:block md:hidden ssm:hidden bg-cover"
-        style={{ backgroundImage: `url(${BGHD})`, height: "1024px" }}
-      >
-        <Nav />
-      </div>
-      <div
-        className="w-full h-[868px] lg:hidden md:block ssm:hidden bg-cover"
-        style={{ backgroundImage: `url(${BGHT})` }}
-      >
-        <Nav />
-      </div>
-      <div
-        className="w-full h-full lg:hidden md:hidden ssm:block bg-cover"
-        style={{ backgroundImage: `url(${BGHM})` }}
-      >
-        <Nav />
+      <div>
+        <Home />
+        <Destination />
       </div>
     </>
   );

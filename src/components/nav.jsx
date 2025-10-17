@@ -3,12 +3,11 @@ import Logo from "../assets/Image/logo.svg";
 import { Link } from "react-router-dom";
 import Hamburger from "../assets/Image/icon-hamburger.svg";
 import Close from "../assets/Image/icon-close.svg";
-import Hero from "./destination";
 
 function Nav() {
   function DesktopLayout() {
     return (
-      <div className="w-full h-screen lg:block md:hidden ssm:hidden bg-cover">
+      <div className="lg:block md:hidden ssm:hidden">
         <div className=" pt-5 flex justify-between items-center ">
           <div className="pl-10">
             <img src={Logo} alt="Logo" />
@@ -42,14 +41,13 @@ function Nav() {
             </Link>
           </div>
         </div>
-        <Hero />
       </div>
     );
   }
 
   function TabletLayout() {
     return (
-      <div className="w-full lg:hidden md:block ssm:hidden bg-cover">
+      <div className="w-full lg:hidden md:block ssm:hidden ">
         <div className="pt-5 justify-between items-center flex ">
           <div className="pl-10">
             <img src={Logo} alt="Logo" />
@@ -81,7 +79,6 @@ function Nav() {
             </Link>
           </div>
         </div>
-        <Hero />
       </div>
     );
   }
@@ -90,7 +87,7 @@ function Nav() {
     const [toggle, setToggle] = useState(false);
 
     return (
-      <div className="w-full h-screen lg:hidden md:hidden ssm:block bg-cover">
+      <div className="w-full lg:hidden md:hidden ssm:block ">
         <div className="relative">
           <div className="flex justify-between items-center p-5">
             <div className="pl-10">
@@ -138,7 +135,6 @@ function Nav() {
             )}
           </div>
         </div>
-        <Hero />
       </div>
     );
   }

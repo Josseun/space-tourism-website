@@ -3,6 +3,10 @@ import Moon from "../assets/Image/image-moon.png";
 import Mars from "../assets/Image/image-mars.png";
 import Europa from "../assets/Image/image-europa.png";
 import Titan from "../assets/Image/image-titan.png";
+import BGHD from "../assets/Image/background-destination-desktop.jpg";
+import BGHT from "../assets/Image/background-destination-tablet.jpg";
+import BGHM from "../assets/Image/background-destination-mobile.jpg";
+import Nav from "./nav";
 
 function Destination() {
   const DData = [
@@ -48,91 +52,148 @@ function Destination() {
 
   const activebtnDestination = DData[activebtn];
 
+  console.log(activebtnDestination);
+
   function DesktopLayout() {
     return (
-      <div className="w-full h-full lg:block md:hidden ssm:hidden text-white">
-        <div className="py-[35px] flex flex-col justify-between px-[160px] ">
+      <div
+        className="w-full h-full lg:block md:hidden ssm:hidden text-white bg-cover"
+        style={{ backgroundImage: `url(${BGHD})`, height: "800px" }}
+      >
+        <Nav />
+        <div className="pt-[30px] flex flex-col justify-between px-[120px] ">
           <div className="text-[28px] font-barlow-reg uppercase pb-[48px]">
             <span className="text-white/25">01</span> Pick your destination
           </div>
-          <div className="flex justify-between">
-            <div>
+          <div className="w-full h-full flex justify-center items-center">
+            <div className="w-full h-full flex">
               <img
                 src={activebtnDestination.Image}
                 alt={activebtnDestination.name}
               />
+            </div>
+            <div className="w-full h-full max-w-[445px] flex flex-col gap-10">
+              <div className="w-full h-full flex gap-8">
+                {DData.map((data, index) => {
+                  return (
+                    <div key={data.id}>
+                      <button
+                        onClick={() => setActiveBtn(index)}
+                        className={`uppercase font-barlow-reg text-xl ${
+                          activebtn === index
+                            ? "opacity-100 translate-x-0"
+                            : "opac"
+                        }`}
+                      >
+                        {data.name}
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div>
+                <div className="text-[96px] uppercase font-Bellefair-reg">
+                  {activebtnDestination.name}
+                </div>
+                <div className=" text-[22.5px] font-barlow-reg">
+                  {activebtnDestination.content}
+                </div>
+                <hr className="my-[40px] text-white/25" />
+                <div className="flex gap-30 uppercase">
+                  <div>
+                    <div className="text-[14px] font-barlow-reg">
+                      AVG. DISTANCE
+                    </div>
+                    <div className="text-[28px] font-Bellefair-reg">
+                      {activebtnDestination.distance}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-[14px] font-barlow-reg">
+                      Est. travel time
+                    </div>
+                    <div className="text-[28px] font-Bellefair-reg">
+                      {activebtnDestination.time}
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     );
   }
-  {
-    /* {DData.map((data, index) => {
-              return (
-                <div
-                  key={index}
-                  className={`${
-                    activebtn === index
-                      ? "opacity-100 translate-x-0"
-                      : index < activebtn
-                      ? "opacity-0 -translate-x-full"
-                      : "opacity-0 translate-x-full"
-                  }`}
-                >
-                  <div className="flex justify-between">
-                    <div>
-                      <img src={data.Image} alt="" />
-                    </div>
-                    <div className="w-[445px] h-full">
-                      <div className="flex gap-10 w-full pb-[40px] uppercase font-barlow-reg">
-                        <div onClick={() => setActiveBtn(0)}>Moon</div>
-                        <div onClick={() => setActiveBtn(1)}>Mars</div>
-                        <div onClick={() => setActiveBtn(2)}>Europa</div>
-                        <div onClick={() => setActiveBtn(3)}>Titan</div>
-                      </div>
-                      <div>
-                        {activebtn === index && (
-                          <div>
-                            <div className="text-[96px] pb-[16px] uppercase font-Bellefair-reg">
-                              {data.name}
-                            </div>
-                            <div className="text-justify text-[18px] font-barlow-reg w-[350px]">
-                              {data.content}
-                            </div>
-                            <hr className="my-[40px] text-white/25" />
-                            <div className="flex justify-between items-center">
-                              <div>
-                                <div className="text-[14px] font-barlow-reg">
-                                  AVG. DISTANCE
-                                </div>
-                                <div className="text-[28px] font-Bellefair-reg">
-                                  {data.distance}
-                                </div>
-                              </div>
-                              <div>
-                                <div className="text-[14px] font-barlow-reg">
-                                  Est. travel time
-                                </div>
-                                <div>{data.time}</div>
-                              </div>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
- */
-  }
 
   function TabletLayout() {
     return (
-      <div className="w-full lg:hidden md:block ssm:hidden bg-cover">
-        <div className="pt-5 mb-15 justify-between items-center flex ">
-          hello
+      <div
+        className="w-full lg:hidden md:block ssm:hidden text-white bg-cover"
+        style={{ backgroundImage: `url(${BGHT})` }}
+      >
+        <Nav />
+        <div className="py-[30px] flex flex-col justify-between">
+          <div className="text-[20px] font-barlow-reg uppercase ml-10 mb-10">
+            <span className="text-white/25">01</span> Pick your destination
+          </div>
+          <div className="w-full h-full flex flex-col gap-10 justify-center items-center">
+            <div>
+              <img
+                width={300}
+                src={activebtnDestination.Image}
+                alt={activebtnDestination.name}
+              />
+            </div>
+            <div className="w-full h-full max-w-[514px] justify-center items-center flex flex-col gap-5">
+              <div className="w-full h-full flex justify-center items-center gap-8">
+                {DData.map((data, index) => {
+                  return (
+                    <div key={data.id}>
+                      <button
+                        onClick={() => setActiveBtn(index)}
+                        className={`uppercase font-barlow-reg text-[16px] ${
+                          activebtn === index
+                            ? "opacity-100 translate-x-0"
+                            : "opac"
+                        }`}
+                      >
+                        {data.name}
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div>
+                <div className="text-[80px] text-center uppercase font-Bellefair-reg">
+                  {activebtnDestination.name}
+                </div>
+                <div className=" text-[20px] text-center font-barlow-reg">
+                  {activebtnDestination.content}
+                </div>
+                <hr className="my-[40px] text-white/25" />
+                <div className="flex gap-30 uppercase text-center items-center justify-center">
+                  <div>
+                    <div className="text-[14px] font-barlow-reg">
+                      AVG. DISTANCE
+                    </div>
+                    <div className="text-[28px] font-Bellefair-reg">
+                      {activebtnDestination.distance}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-[14px] font-barlow-reg">
+                      Est. travel time
+                    </div>
+                    <div className="text-[28px] font-Bellefair-reg">
+                      {activebtnDestination.time}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -140,9 +201,73 @@ function Destination() {
 
   function MobileLayout() {
     return (
-      <div className="w-full lg:hidden md:hidden ssm:block bg-cover">
-        <div className="pt-5 mb-15 justify-between items-center flex ">
-          hello
+      <div
+        className="w-full lg:hidden md:hidden ssm:block text-white bg-cover"
+        style={{ backgroundImage: `url(${BGHM})`, height: "760px" }}
+      >
+        <Nav />
+        <div className="flex flex-col justify-between items-center gap-5">
+          <div className="text-[20px] flex gap-5 font-barlow-reg uppercase">
+            <span className="text-white/25">01</span>
+            <div>Pick your destination</div>
+          </div>
+          <div className="w-full h-full flex flex-col gap-5 justify-center items-center">
+            <div>
+              <img
+                width={150}
+                src={activebtnDestination.Image}
+                alt={activebtnDestination.name}
+              />
+            </div>
+            <div className="w-full h-full max-w-[327px] justify-center items-center flex flex-col gap-5">
+              <div className="w-full h-full flex justify-center items-center gap-8">
+                {DData.map((data, index) => {
+                  return (
+                    <div key={data.id}>
+                      <button
+                        onClick={() => setActiveBtn(index)}
+                        className={`uppercase font-barlow-reg text-[14px] ${
+                          activebtn === index
+                            ? "opacity-100 translate-x-0"
+                            : "opac"
+                        }`}
+                      >
+                        {data.name}
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div>
+                <div className="text-[56px] text-center uppercase font-Bellefair-reg">
+                  {activebtnDestination.name}
+                </div>
+                <div className=" text-[20px] text-center font-barlow-reg">
+                  {activebtnDestination.content}
+                </div>
+                <hr className="my-[12px] text-white/25" />
+                <div className="flex flex-col gap-5 uppercase text-center items-center justify-center">
+                  <div>
+                    <div className="text-[14px] font-barlow-reg">
+                      AVG. DISTANCE
+                    </div>
+                    <div className="text-[28px] font-Bellefair-reg">
+                      {activebtnDestination.distance}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-[14px] font-barlow-reg">
+                      Est. travel time
+                    </div>
+                    <div className="text-[28px] font-Bellefair-reg">
+                      {activebtnDestination.time}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
