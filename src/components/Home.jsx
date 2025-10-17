@@ -1,13 +1,17 @@
 import React from "react";
-import BGHD from "../assets/Image/background-destination-desktop.jpg";
-import BGHT from "../assets/Image/background-destination-tablet.jpg";
-import BGHM from "../assets/Image/background-destination-mobile.jpg";
-
+import BGHD from "../assets/Image/background-home-desktop.jpg";
+import BGHT from "../assets/Image/background-home-tablet.jpg";
+import BGHM from "../assets/Image/background-home-mobile.jpg";
+import Nav from "./nav";
 
 function hero() {
   function DesktopLayout() {
     return (
-      <div className="lg:block md:hidden ssm:hidden">
+      <div
+        className="lg:block md:hidden ssm:hidden bg-cover"
+        style={{ backgroundImage: `url(${BGHD})`, height: "800px" }}
+      >
+        <Nav />
         <div className="w-full h-140 flex justify-center items-center">
           <div className="lg:flex lg:w-full lg:max-w-[1110px] justify-between items-center text-white uppercase tracking-widest">
             <div>
@@ -37,7 +41,11 @@ function hero() {
 
   function TabletLayout() {
     return (
-      <div className="w-full lg:hidden md:block ssm:hidden bg-cover">
+      <div
+        className="w-full lg:hidden md:block ssm:hidden bg-cover"
+        style={{ backgroundImage: `url(${BGHT})` }}
+      >
+        <Nav />
         <div className="w-full h-full flex justify-center items-center">
           <div className="flex flex-col justify-between h-full  items-center text-white text-center  tracking-widest">
             <div>
@@ -69,7 +77,11 @@ function hero() {
 
   function MobileLayout() {
     return (
-      <div className="w-full h-full lg:hidden md:hidden ssm:block bg-cover">
+      <div
+        className="w-full h-full lg:hidden md:hidden ssm:block bg-cover"
+        style={{ backgroundImage: `url(${BGHM})`, height: "760px" }}
+      >
+        <Nav />
         <div className="w-full flex justify-center items-center">
           <div className="flex flex-col h-full  items-center mt-10 text-white text-center  tracking-widest">
             <div>

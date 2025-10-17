@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Destination from "./destination";
 import Home from "./home";
+import Crew from "./crew";
 
 // // Desktop imports
 // import Home from "./Home";
@@ -22,8 +23,12 @@ function Main() {
   return (
     <>
       <div>
-        <Home />
-        <Destination />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Destination" element={<Destination />} />
+          <Route path="" element={<Crew />} />
+          <Route path="" element={< />} />
+        </Routes>
       </div>
     </>
   );

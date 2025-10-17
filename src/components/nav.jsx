@@ -14,7 +14,7 @@ function Nav() {
           </div>
           <div className="flex w-3xl justify-end gap-10 items-center pl-10 pr-4 py-6 bg-white/5 backdrop-blur uppercase">
             <Link
-              to=""
+              to="/"
               className="text-white tracking-widest text-[16px] font-light"
             >
               Home
@@ -54,13 +54,13 @@ function Nav() {
           </div>
           <div className="w-xl flex justify-end gap-10 items-center pl-8 pr-4 py-10 bg-white/5 backdrop-blur uppercase">
             <Link
-              to=""
+              to="/"
               className="text-white tracking-widest text-[16px] w-full font-light"
             >
               Home
             </Link>
             <Link
-              to=""
+             to="/destination"
               className="text-white tracking-widest text-[16px] w-full font-light"
             >
               Destination
@@ -106,13 +106,13 @@ function Nav() {
             {toggle ? (
               <div className="flex flex-col justify-center w-full h-screen gap-10 px-10 py-6 bg-blue-300/10 backdrop-blur uppercase">
                 <Link
-                  to=""
+                  to="/"
                   className="text-white tracking-widest text-[16px] w-full font-light "
                 >
                   00 Home
                 </Link>
                 <Link
-                  to=""
+                  to="/destination"
                   className="text-white tracking-widest text-[16px] w-full font-light"
                 >
                   01 Destination
